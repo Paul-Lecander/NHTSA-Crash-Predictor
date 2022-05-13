@@ -12,11 +12,26 @@ The team will create and online resource/app that allows a user to input certain
 ## **Dataset**
 The National Highway Traffic Safety Administration (NHTSA) publishes multi-year datasets with the goal of saving lives, reducing injuries and reducing the economic costs of road traffic crashes. The dataset looks at a sample of nationally representative crashes annually for the years 2018 through 2020. The data set highlights dozens of data points for each of the accidents reported via public police records about each accident.
 
+Below are examples of the type of data that exist in the dataset.
+
+### Accident Data
+![Accident table](Resources/Sample%20Data%20-%20Accident%20Table.png)
+
+### Vehicle Data
+![Vehicle Table](Resources/Sample%20Data%20-%20Vehicle%20Table.png)
+
+### Person Data
+![Person Table](Resources/Sample%20Data%20-%20Person%20Table.png)
+
+
 ## **Exploratory Data Analysis**
 Initial exploratory data analysis will generate hypotheses for the most important factors that increase the likelihood of an auto accident. We will leverage the datasets contained in the accident, driverrf, vehicle, and weather csv files to perform our EDA.
 
 ## **Database Design**
 YYY
 
+Below is a sample of the tables and field names based on the example data above.
+![Table and Fields](Resources/Table%20and%20Fields.png)
+
 ## **Machine Learning Model**
-ZZZ
+Given the known binary outcome in the dataset, a deep neural network machine learning model will be created to classify whether a crash under specified conditions results in injury or not. Prior to running the model, the data will be preprocessed, including scaling using StandardScaler and encoding categorical data using OneHotEncoder. It is anticipated that three hidden layers will be used, with approximately 200, 40, and 10 nodes respectively. As a benchmark, a random forest classifier model will also be run.
