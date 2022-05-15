@@ -34,5 +34,7 @@ Below is a sample of the tables and field names based on the example data above.
 
 ![Table and Fields](Resources/Table%20and%20Fields.png)
 
+Preliminary [tables create scripts](database/tables.sql) and a [select query](database/featuresQuery.sql) have also been provided.
+
 ## **Machine Learning Model**
 Given the known binary outcome in the dataset, a deep neural network machine learning model will be created to classify whether a crash under specified conditions results in injury or not. Prior to running the model, the data will be preprocessed, including scaling using StandardScaler and encoding categorical data using OneHotEncoder. It is anticipated that three hidden layers will be used, with approximately 200, 40, and 10 nodes respectively. As a benchmark, a random forest classifier model will also be run.
