@@ -27,7 +27,7 @@ SELECT acc.casenum
       ,veh.bdytyp_imname
       ,veh.mdlyr_im
       ,veh.pcrash1_imname
-	  ,per.ve_forms
+      ,per.ve_forms
       ,per.per_no
       ,per.rest_usename
       ,per.helm_usename
