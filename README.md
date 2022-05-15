@@ -28,9 +28,9 @@ Below are examples of the type of data that exist in the dataset.
 Initial exploratory data analysis will generate hypotheses for the most important factors that increase the likelihood of an auto accident. We will leverage the datasets contained in the accident, driverrf, vehicle, and weather csv files to perform our EDA.
 
 ## **Database Design**
-YYY
+A relational Postgres database will be created for the project with 3 data tables.
 
-Below is a sample of the tables and field names based on the example data above.
+Below is a sample of the tables and field names based on the example data above. Included in the figure are the fields which will be linked between tables.
 ![Table and Fields](Resources/Table%20and%20Fields.png)
 
 ## **Machine Learning Model**
