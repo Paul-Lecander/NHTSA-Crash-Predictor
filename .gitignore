@@ -130,3 +130,6 @@ dmypy.json
 
 # Python configuration
 config.py
+
+# CSV files
+*.csv
