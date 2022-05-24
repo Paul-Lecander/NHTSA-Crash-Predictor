@@ -47,3 +47,21 @@ CREATE accident_vehicle_person
  FROM accident acc
  LEFT JOIN vehicle veh ON acc.casenum = veh.casenum
  LEFT JOIN person per ON veh.casenum = per.casenum AND veh.veh_no = per.veh_no;
+ 
+SELECT COUNT(*) AS number_of_people,
+       CASE
+           WHEN person.age_im < 10 THEN '0-10'
+           WHEN person.age_im < 20 THEN '10-20'
+		   WHEN person.age_im < 30 THEN '20-30'
+		   WHEN person.age_im < 40 THEN '30-40'
+		   WHEN person.age_im < 50 THEN '40-50'
+		   WHEN person.age_im < 60 THEN '50-60'
+		   WHEN person.age_im < 70 THEN '60-70'
+		   WHEN person.age_im < 80 THEN '70-80'
+		   WHEN person.age_im < 90 THEN '80-90'
+           ELSE '90+'
+       END AS bucket
+FROM person
+WHERE age_im NOT IN (999, 998)
+GROUP BY bucket
+ORDER BY bucket;
