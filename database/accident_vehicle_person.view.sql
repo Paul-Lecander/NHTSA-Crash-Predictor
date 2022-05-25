@@ -1,4 +1,8 @@
-CREATE accident_vehicle_person
+-- View: public.accident_vehicle_person
+
+-- DROP VIEW public.accident_vehicle_person;
+
+CREATE OR REPLACE VIEW public.accident_vehicle_person
  AS
  SELECT acc.casenum,
     acc.urbancity,
@@ -44,6 +48,10 @@ CREATE accident_vehicle_person
     per.peralch_imname,
     per.seat_imname,
     per.age_im
- FROM accident acc
- LEFT JOIN vehicle veh ON acc.casenum = veh.casenum
- LEFT JOIN person per ON veh.casenum = per.casenum AND veh.veh_no = per.veh_no;
+   FROM accident acc
+     JOIN vehicle veh ON acc.casenum::text = veh.casenum::text
+     JOIN person per ON veh.casenum::text = per.casenum::text AND veh.veh_no = per.veh_no;
+
+ALTER TABLE public.accident_vehicle_person
+    OWNER TO postgres;
+
