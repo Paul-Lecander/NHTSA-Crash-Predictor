@@ -1,5 +1,5 @@
 # **Group 3 Final Project - Segment 1**
-## **Team: All Gas No Brakes**
+## **Team: All Gas No Brakescd **
  - Paul Lecander
  - Bryce Hutchins
  - David Leske
@@ -39,5 +39,9 @@ Preliminary [tables create scripts](database/tables.sql) and a [select query](da
 ## **Machine Learning Model**
 Given the known binary outcome in the dataset, a deep neural network machine learning model will be created to classify whether a crash under specified conditions results in injury or not. Prior to running the model, the data will be preprocessed, including scaling using StandardScaler and encoding categorical data using OneHotEncoder. It is anticipated that three hidden layers will be used, with approximately 200, 40, and 10 nodes respectively. As a benchmark, a random forest classifier model will also be run.
 
-## Application
+## **Application**
 A JavaScript web application will be built. The user will provide information about their upcoming trip. Upon submitting the form, the application will perform the algorithm that was identified by machine learning to determine if the user is likely to get injured, if they were to be involved in a car accident.
+
+
+## **Segment 2 Presentation**
+- [Presentation Slides](https://docs.google.com/presentation/d/1URjk4n8VrBYf9L2TYbccmTs8W7xYa4aCZMgLYnsPvqM/edit#slide=id.g12c84bcea79_0_43)
