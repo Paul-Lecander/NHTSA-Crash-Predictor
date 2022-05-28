@@ -84,3 +84,4 @@ A JavaScript web application will be built. The user will provide information ab
 
 ## **Segment 2 Presentation**
 - [Presentation Slides](https://docs.google.com/presentation/d/1URjk4n8VrBYf9L2TYbccmTs8W7xYa4aCZMgLYnsPvqM/edit#slide=id.g12c84bcea79_0_43)
+- [Tableau Data Visualizations](https://public.tableau.com/app/profile/bryce.hutchins/viz/Final_project_16530196613110/Monthsbar)
