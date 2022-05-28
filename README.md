@@ -1,5 +1,5 @@
 # **Group 3 Final Project - Segment 1**
-## **Team: All Gas No Brakescd **
+## **Team: All Gas No Brakes **
  - Paul Lecander
  - Bryce Hutchins
  - David Leske
@@ -47,9 +47,9 @@ Preliminary [tables create scripts](database/tables.sql) and a [select query](da
 ## **Machine Learning Model**
 Given the known binary outcome in the dataset, a deep neural network machine learning model was created to classify whether a crash under specified conditions results in injury or not. The dataset allows for classification of the extent of injury on an ordinal scale and therefore 3 separate models have been created based on the extent of the injury:
 
-1- Any injury (minor, serious, or fatal)
-2- Any serious injury (serious or fatal)
-3- Any fatal injury
+1. Any injury (minor, serious, or fatal)
+2. Any serious injury (serious or fatal)
+3. Any fatal injury
 
 Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were relate only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 31 plus an additional 3 outcomes for a total of 34 variables.
 
