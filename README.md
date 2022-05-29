@@ -50,7 +50,7 @@ As part of Segment 2, the database design has been finalized. In addition, we ha
 3. Chart for age counts view - [chart_age_counts.view.sql](database/chart_age_counts.view.sql)
 
 ## **Machine Learning Model**
-Given the known binary outcome in the dataset, a deep neural network machine learning model was created to classify whether a crash under specified conditions results in injury or not. The dataset allows for classification of the extent of injury on an ordinal scale and therefore 3 separate models have been created based on the extent of the injury: ![accident_vehicle_person.view.sql](accident_vehicle_person.view.sql)
+Given the known binary outcome in the dataset, a deep neural network machine learning model was created to classify whether a crash under specified conditions results in injury or not. The dataset allows for classification of the extent of injury on an ordinal scale and therefore 3 separate models have been created based on the extent of the injury:
 
 1. Any injury (minor, serious, or fatal)
 2. Any serious injury (serious or fatal)
