@@ -44,8 +44,13 @@ Below is a sample of the tables and field names based on the example data above.
 
 Preliminary [tables create scripts](database/tables.sql) and a [select query](database/featuresQuery.sql) have also been provided.
 
+As part of Segment 2, the database design has been finalized. In addition, we have created the Postgres database in Amazon RDS. It is accessible to our Python machine learning scripts and web application. We have come up with a strategy and scripts for retrieving our data. For example, the Python scripts used with machine learning will be retrieving data with the accident_vehicle_person view. We've also defined a specific view for the web application to show accident numbers by age group. We will be making use of database views to return additional datasets for the application to visualize. Here are the various scripts currently available as part of the database:
+1. Create tables - [tables.sql](database/tables.sql)
+2. Accident/vehicle/person view - [accident_vehicle_person.view.sql](database/accident_vehicle_person.view.sql)
+3. Chart for age counts view - [chart_age_counts.view.sql](database/chart_age_counts.view.sql)
+
 ## **Machine Learning Model**
-Given the known binary outcome in the dataset, a deep neural network machine learning model was created to classify whether a crash under specified conditions results in injury or not. The dataset allows for classification of the extent of injury on an ordinal scale and therefore 3 separate models have been created based on the extent of the injury:
+Given the known binary outcome in the dataset, a deep neural network machine learning model was created to classify whether a crash under specified conditions results in injury or not. The dataset allows for classification of the extent of injury on an ordinal scale and therefore 3 separate models have been created based on the extent of the injury: ![accident_vehicle_person.view.sql](accident_vehicle_person.view.sql)
 
 1. Any injury (minor, serious, or fatal)
 2. Any serious injury (serious or fatal)
