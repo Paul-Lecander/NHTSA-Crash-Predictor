@@ -56,7 +56,7 @@ Given the known binary outcome in the dataset, a deep neural network machine lea
 2. Any serious injury (serious or fatal)
 3. Any fatal injury
 
-Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were relate only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 31 plus an additional 3 outcomes for a total of 34 variables.
+Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were related only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 31 plus an additional 3 outcomes for a total of 34 variables.
 
 Much of the data was categorical with many unique categories. Categorical data was binned to reduce the number of categories when the number of categories was larger.
 
