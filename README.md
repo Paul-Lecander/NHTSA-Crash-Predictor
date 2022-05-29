@@ -42,8 +42,6 @@ Below is a sample of the tables and field names based on the example data above.
 
 ![Table and Fields](Resources/Table%20and%20Fields.png)
 
-Preliminary [tables create scripts](database/tables.sql) and a [select query](database/featuresQuery.sql) have also been provided.
-
 As part of Segment 2, the database design has been finalized. In addition, we have created the Postgres database in Amazon RDS. It is accessible to our Python machine learning scripts and web application. We have come up with a strategy and scripts for retrieving our data. For example, the Python scripts used with machine learning will be retrieving data with the accident_vehicle_person view. We've also defined a specific view for the web application to show accident numbers by age group. We will be making use of database views to return additional datasets for the application to visualize. Here are the various scripts currently available as part of the database:
 1. Create tables - [tables.sql](database/tables.sql)
 2. Accident/vehicle/person view - [accident_vehicle_person.view.sql](database/accident_vehicle_person.view.sql)
@@ -56,7 +54,7 @@ Given the known binary outcome in the dataset, a deep neural network machine lea
 2. Any serious injury (serious or fatal)
 3. Any fatal injury
 
-Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were related only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 31 plus an additional 3 outcomes for a total of 34 variables.
+Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were relate only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 31 plus an additional 3 outcomes for a total of 34 variables.
 
 Much of the data was categorical with many unique categories. Categorical data was binned to reduce the number of categories when the number of categories was larger.
 
@@ -85,6 +83,17 @@ The data was scaled using StandardScaler and split into testing and training dat
 
 ## **Application**
 A JavaScript web application will be built. The user will provide information about their upcoming trip. Upon submitting the form, the application will perform the algorithm that was identified by machine learning to determine if the user is likely to get injured, if they were to be involved in a car accident.
+
+With Segment 2, we have made significant progress with our web application. Here are the highlights:
+1. The application is running on the Heroku platform and available at the following URL: https://all-gas-no-brakes.herokuapp.com/
+2. We have a separate repository for the web application where all of us are able to contribute: https://github.com/haldud/all-gas-no-brakes
+3. We can make connections from our Node.js application hosted in Heroku to our PostgreSQL database hosted in AWS.
+4. We started with the [SB Admin 2](https://startbootstrap.com/theme/sb-admin-2) template to make a visually appealing dashboard.
+5. The Age Distribution chart on the [charts](https://all-gas-no-brakes.herokuapp.com/charts.html) page retrieves data from the database in real-time. Below are the code changes involved. We will follow a similar model for additional visualizations.
+   - API to retrieve data from the DB: https://github.com/haldud/all-gas-no-brakes/blob/main/routes/cssr.js
+   - Code to call the API and generate the age bar chart: https://github.com/haldud/all-gas-no-brakes/blob/main/public/js/age-bar-chart.js
+6. Our plan is also to host the Tableau Data Visualizations that have been built with the use of iFrames.
+7. We will next work on importing our models into the application, providing options for the user to enter fields, and finally running the model with the user provided data to determine the likelihood of injury.
 
 
 ## **Segment 2 Presentation**
