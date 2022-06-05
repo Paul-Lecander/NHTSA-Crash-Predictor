@@ -33,16 +33,18 @@ Below are examples of the type of data that exist in the dataset.
 
 
 ## **Exploratory Data Analysis**
-Initial exploratory data analysis will generate hypotheses for the most important factors that increase the likelihood of an auto accident. We will leverage the datasets contained in the accident, driverrf, vehicle, and weather csv files to perform our EDA.
+Initial exploratory data analysis generated hypotheses for the most important factors that increase the likelihood of an auto accident. We leveraged the datasets contained in the accident, driver, vehicle, and weather csv files to perform our EDA.
 
 ## **Database Design**
-A relational Postgres database will be created for the project with 3 data tables.
+A relational Postgres database has been created for the project with 3 data tables.
 
-Below is a sample of the tables and field names based on the example data above. Included in the figure are the fields which will be linked between tables.
+Below is a sample of the tables and field names based on the example data above. Included in the figure are the fields which are linked between tables.
 
 ![Table and Fields](Resources/Table%20and%20Fields.png)
 
-As part of Segment 2, the database design has been finalized. In addition, we have created the Postgres database in Amazon RDS. It is accessible to our Python machine learning scripts and web application. We have come up with a strategy and scripts for retrieving our data. For example, the Python scripts used with machine learning will be retrieving data with the accident_vehicle_person view. We've also defined a specific view for the web application to show accident numbers by age group. We will be making use of database views to return additional datasets for the application to visualize. Here are the various scripts currently available as part of the database:
+Once the database design was finalized, we created the Postgres database in Amazon RDS. It is accessible to our Python machine learning scripts and web application. We have come up with a strategy and scripts for retrieving our data. For example, the Python scripts used with machine learning retrieves data with the accident_vehicle_person view. We've also defined a specific views for the web application to accident characteristics, such as accident numbers by age group. 
+
+We will be making use of database views to return additional datasets for the application to visualize. Here are the various scripts currently available as part of the database:
 1. Create tables - [tables.sql](database/tables.sql)
 2. Accident/vehicle/person view - [accident_vehicle_person.view.sql](database/accident_vehicle_person.view.sql)
 3. Chart for age counts view - [chart_age_counts.view.sql](database/chart_age_counts.view.sql)
@@ -54,7 +56,7 @@ Given the known binary outcome in the dataset, a deep neural network machine lea
 2. Any serious injury (serious or fatal)
 3. Any fatal injury
 
-Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were relate only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 31 plus an additional 3 outcomes for a total of 34 variables.
+Prior to running the model, the data was preprocessed.  Fields from the selected data set were removed from the dataframe being used for machine learning if they were related only to post-accident outcomes and would not be expected to contribute to or be related to the severity of the injury as a result of the accident. For example, data on whether the person required transportation to the hospital was dropped as this data is a function of the extent of the injury rather than a contributing factor. The total number of features was 30 plus an additional 3 outcomes for a total of 33 variables.
 
 Much of the data was categorical with many unique categories. Categorical data was binned to reduce the number of categories when the number of categories was larger.
 
@@ -68,21 +70,25 @@ was bucketed to a much more manageable list:
 
 In cases where the number of observations were low, categories were bucketed to further reduce the number of categories. For example, the number of occupants in a vehicle greater than 8 were all combined into a single category of 'more than 8'.
 
-Categorical data was then transformed into numerical data using OneHotEncoder. Following encoding of categorical data, the dataset contained 129 features and the outcome variables. 
+Categorical data was then transformed into numerical data using OneHotEncoder. Following encoding of categorical data, the dataset contained 129 features and the 3 outcome variables. 
 
 Given the number of features and a dichotomous categorical outcome, the model of choice was a deep neural network. The neural network was designed with three hidden layers, with 300, 100, and 10 nodes respectively. The advantage of using the deep neural network is that the model is able to take a large number of features into account and determine their relationship one with another. The downside is that the exact relationship if each variable one to another is unknown, and therefore the importance of each variable in the outcome is unknown. Nevertheless, the purpose of our question is to determine given a set of conditions whether an individual would be injured in an accident, and the model is able to provide that particular outcome. 
 
-The data was scaled using StandardScaler and split into testing and training datasets using the default settings. For the model related to any injury, the model was trained for 45 epochs to reduce potential overfitting. For the other two models (serious injury and fatal injury) the model was trained for 25 epochs each. Below is the accuracy and loss for the training and test data for each data model.
+The data was scaled using StandardScaler and split into testing and training datasets using the default settings. For the model related to any injury, the model was trained for 40 epochs to reduce potential overfitting. For the serious injury and fatal injury models, the model was trained for 35 and 25 epochs respectively. Below is the accuracy and loss for the training and test data for each data model.
 
 | MODEL| Training Accuracy | Training Loss | Test Accuracy | Test Loss |
 | :---: | :---: | :---: | :---: | :---: |
-| Any Injury| 0.946 | 0.124 | 0.837 | 0.479 |
-| Serious Injury| 0.997 | 0.008 | 0.964 | 0.173 |
-| Fatal Injury| 0.9996 | 0.001 | 0.995 | 0.026 |
+| Any Injury| 0.874 | 0.290 | 0.772 | 0.614 |
+| Serious Injury| 0.981 | 0.055 | 0.934 | 0.269 |
+| Fatal Injury| 0.998 | 0.007 | 0.989 | 0.059 |
 
+## Benchmarking and Feature Importance
+To benchmark the deep neural network machine learning model, a Random Forest Classifier model was also run on the same dataset. Results were similar between the two models.
+
+Given the inability to determine importance of each of the features using the deep neural network model, feature importance was determined by the Random Forest Classifier model. The top 10 features across the 3 models were identified and are highlighted in the left column of our injury predictor dashboard, allowing end users to focus on the most important features while still allowing input on the less important features within the model.
 
 ## **Application**
-A JavaScript web application will be built. The user will provide information about their upcoming trip. Upon submitting the form, the application will perform the algorithm that was identified by machine learning to determine if the user is likely to get injured, if they were to be involved in a car accident.
+A JavaScript web application has been built, allowing the user to provide information about their upcoming trip. Upon submitting the form, the application performs the algorithm that was identified by machine learning to determine if the user is likely to get injured, if they were to be involved in a car accident.
 
 With Segment 2, we have made significant progress with our web application. Here are the highlights:
 1. The application is running on the Heroku platform and available at the following URL: https://all-gas-no-brakes.herokuapp.com/
