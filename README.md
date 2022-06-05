@@ -1,4 +1,4 @@
-# **Group 3 Final Project - Segment 1**
+# **Group 3 Final Project**
 ## **Team: All Gas No Brakes**
  - Paul Lecander
  - Bryce Hutchins
