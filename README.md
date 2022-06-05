@@ -1,5 +1,5 @@
 # **Group 3 Final Project - Segment 1**
-## **Team: All Gas No Brakes **
+## **Team: All Gas No Brakes**
  - Paul Lecander
  - Bryce Hutchins
  - David Leske
@@ -100,6 +100,16 @@ With Segment 2, we have made significant progress with our web application. Here
    - Code to call the API and generate the age bar chart: https://github.com/haldud/all-gas-no-brakes/blob/main/public/js/age-bar-chart.js
 6. Our plan is also to host the Tableau Data Visualizations that have been built with the use of iFrames.
 7. We will next work on importing our models into the application, providing options for the user to enter fields, and finally running the model with the user provided data to determine the likelihood of injury.
+
+### **The Finished Application**</br>
+#### Crashboard
+![Crashboard](/Resources/Application%20Crashboard.png)</br>
+
+#### Injury Predictor
+![Injury Predictor](/Resources/Application%20Injury%20Predictor.png)</br>
+
+#### About Page
+![About](/Resources/Application%20About%20Page.png)</br>
 
 
 ## **Segment 2 Presentation**
