@@ -44,10 +44,11 @@ Below is a sample of the tables and field names based on the example data above.
 
 Once the database design was finalized, we created the Postgres database in Amazon RDS. It is accessible to our Python machine learning scripts and web application. We have come up with a strategy and scripts for retrieving our data. For example, the Python scripts used with machine learning retrieves data with the accident_vehicle_person view. We've also defined a specific views for the web application to accident characteristics, such as accident numbers by age group. 
 
-We will be making use of database views to return additional datasets for the application to visualize. Here are the various scripts currently available as part of the database:
+We are making use of database views and direct sql to return additional datasets for the application to visualize. Here are the various scripts currently available as part of the database:
 1. Create tables - [tables.sql](database/tables.sql)
-2. Accident/vehicle/person view - [accident_vehicle_person.view.sql](database/accident_vehicle_person.view.sql)
-3. Chart for age counts view - [chart_age_counts.view.sql](database/chart_age_counts.view.sql)
+2. Count queries for main dashboard [count_scripts.sql](database/count_scripts.sql)
+3. Accident/vehicle/person view - [accident_vehicle_person.view.sql](database/accident_vehicle_person.view.sql)
+4. Chart for age counts view - [chart_age_counts.view.sql](database/chart_age_counts.view.sql)
 
 ## **Machine Learning Model**
 Given the known binary outcome in the dataset, a deep neural network machine learning model was created to classify whether a crash under specified conditions results in injury or not. The dataset allows for classification of the extent of injury on an ordinal scale and therefore 3 separate models have been created based on the extent of the injury:
@@ -90,16 +91,16 @@ Given the inability to determine importance of each of the features using the de
 ## **Application**
 A JavaScript web application has been built, allowing the user to provide information about their upcoming trip. Upon submitting the form, the application performs the algorithm that was identified by machine learning to determine if the user is likely to get injured, if they were to be involved in a car accident.
 
-With Segment 2, we have made significant progress with our web application. Here are the highlights:
+Overview of application:
 1. The application is running on the Heroku platform and available at the following URL: https://all-gas-no-brakes.herokuapp.com/
 2. We have a separate repository for the web application where all of us are able to contribute: https://github.com/haldud/all-gas-no-brakes
-3. We can make connections from our Node.js application hosted in Heroku to our PostgreSQL database hosted in AWS.
+3. The Node.js application hosted in Heroku makes direct connectons to our PostgreSQL database hosted in AWS.
 4. We started with the [SB Admin 2](https://startbootstrap.com/theme/sb-admin-2) template to make a visually appealing dashboard.
-5. The Age Distribution chart on the [charts](https://all-gas-no-brakes.herokuapp.com/charts.html) page retrieves data from the database in real-time. Below are the code changes involved. We will follow a similar model for additional visualizations.
+5. The summary counts on the [crashboard](https://all-gas-no-brakes.herokuapp.com/) page retrieve data from the database in real-time. Below are the code changes involved.
    - API to retrieve data from the DB: https://github.com/haldud/all-gas-no-brakes/blob/main/routes/cssr.js
-   - Code to call the API and generate the age bar chart: https://github.com/haldud/all-gas-no-brakes/blob/main/public/js/age-bar-chart.js
-6. Our plan is also to host the Tableau Data Visualizations that have been built with the use of iFrames.
-7. We will next work on importing our models into the application, providing options for the user to enter fields, and finally running the model with the user provided data to determine the likelihood of injury.
+6. The Tableau Data Visualizations that have been built and that are visible from the crashboard are hosted with iFrames.
+7. The [injury predictor](https://all-gas-no-brakes.herokuapp.com/injury-predictor.html) page is available and fully functional.
+   - The machine learning models that were built in Python are loaded into the application and performed any time a values changes.
 
 ### **The Finished Application**</br>
 #### Crashboard
